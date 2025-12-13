@@ -1,0 +1,260 @@
+/* Базові стилі */
+:root{
+    --bg:#f7fbf7;
+    --card:#ffffff;
+    --accent:#4a8a4a;
+    --muted:#6b6b6b;
+}
+*{box-sizing:border-box}
+body{font-family:Segoe UI,Roboto,Arial,sans-serif; margin:0; background:var(--bg); color:#222; padding: 5px; padding-top: 70px;}
+.container{max-width:1000px; margin:0 auto; padding:20px; box-sizing: border-box;}
+
+/* Header */
+.site-header{background:linear-gradient(180deg,#ffffffcc,#f0fff0cc); border-bottom:1px solid #e6e6e6; transition: box-shadow 0.5s, background 0.5s, color 0.5s;}
+.site-header.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1000;
+    box-shadow: 0 2px 16px rgba(76,138,76,0.08);
+    background: linear-gradient(180deg,#ffffffee,#f0fff0ee);
+    height: 70px;
+    min-height: 70px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 70px;
+    height: 70px;
+    padding: 0;
+}
+.brand{display:flex; align-items:center; gap:12px}
+.logo{
+    width:64px;
+    height:64px;
+    object-fit:cover;
+    border-radius:18px;
+    border:3px solid #4a8a4a;
+    background:#fff;
+    box-shadow:0 4px 24px rgba(76,138,76,0.10);
+    transition:all 0.5s cubic-bezier(.4,2,.3,1);
+}
+.brand-text h1{font-size:18px; margin:0}
+.tag{margin:0; color:var(--muted); font-size:13px}
+.nav {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+.nav a {
+    text-decoration: none;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1.15rem;
+    padding: 12px 8px;
+    transition: color 0.2s;
+}
+.nav a:hover {
+    color: #2e5e2e;
+}
+
+/* Hero */
+.hero{padding:40px 0; text-align:center; transition: box-shadow 0.5s, background 0.5s, color 0.5s;}
+.hero h2{margin:0 0 8px 0; font-size:28px}
+.lead{color:var(--muted); margin-bottom:16px}
+.btn{display:inline-block; background:var(--accent); color:#fff; padding:10px 18px; border-radius:8px; text-decoration:none}
+.hero-flex {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+.hero-title {
+    padding-top: 70px;
+}
+
+/* Cards */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 18px;
+    margin-top: 10px;
+    transition: box-shadow 0.5s, background 0.5s, color 0.5s;
+    justify-items: center;
+    align-items: stretch;
+}
+.card {
+    background: var(--card);
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(76,138,76,0.06);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 370px;
+    max-width: 340px;
+    width: 100%;
+    text-align: center;
+}
+.card h3{margin-top:0}
+
+/* Howto and tips */
+.howto ol{padding-left:18px}
+.tips ul{padding-left:18px}
+.tips .logo {
+    display: block;
+    margin: 0 auto 18px auto;
+}
+
+/* Investors */
+.price {
+    font-size: 20px;
+    color: #4a8a4a;
+    margin-bottom: 18px;
+}
+.invest {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background: #eafbe7;
+    border-radius: 0;
+    box-shadow: 0 2px 12px rgba(76,138,76,0.07);
+    padding: 48px 0;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.invest .invest-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 16px;
+}
+.invest h2 {
+    color: #357a35;
+    margin-top: 0;
+}
+.invest ul {
+    margin: 18px 0 18px 18px;
+    padding-left: 0;
+}
+.invest li {
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+.invest .btn {
+    margin-top: 18px;
+    font-size: 17px;
+    padding: 12px 28px;
+}
+.invest .logo {
+    display: block;
+    margin: 0 auto 18px auto;
+}
+
+/* Footer */
+.site-footer{padding:20px 0; text-align:center; color:var(--muted); border-top:1px solid #e6e6e6; margin-top:40px; transition: box-shadow 0.5s, background 0.5s, color 0.5s;}
+.site-footer .logo {
+    display: block;
+    margin: 0 auto 18px auto;
+}
+
+/* Logo Sizes */
+.large-logo {
+    width: 120px;
+    height: 120px;
+}
+.extra-large-logo {
+    width: 180px;
+    height: 180px;
+    margin: 0 32px 0 0;
+}
+.medium-logo {
+    width: 90px;
+    height: 90px;
+}
+.small-logo {
+    width: 56px;
+    height: 56px;
+    margin: 0 8px 0 0;
+}
+
+/* Responsive */
+@media (max-width:800px){
+    .header-inner{flex-direction:column; gap:12px; align-items:flex-start}
+    .nav{flex-wrap:wrap}
+    .cards{grid-template-columns:1fr}
+    .logo{width:56px; height:56px}
+    .large-logo {width: 80px; height: 80px;}
+    .extra-large-logo {width: 120px; height: 120px;}
+    .medium-logo {width: 60px; height: 60px;}
+    .small-logo {width: 36px; height: 36px;}
+    .hero h2{font-size:22px}
+    .hero-flex {gap: 12px;}
+    .invest{padding:16px 8px;}
+    .price{font-size:16px;}
+}
+
+@media (max-width:1200px){
+    .container{max-width:96vw;}
+    .cards{gap:12px;}
+    .card{max-width:98vw;}
+}
+@media (max-width:900px){
+    .cards{grid-template-columns:1fr;}
+    .card{max-width:100%; min-height:unset;}
+    .invest .invest-inner{max-width:100%;}
+    .hero-flex{flex-direction:column; gap:18px;}
+}
+@media (max-width:700px){
+    body{padding:5px; padding-top: 100px;}
+    .container{padding:10px;}
+    .site-header{padding-bottom:8px;}
+    .site-header.fixed-header, .header-inner {
+        height: 100px;
+        min-height: 100px;
+    }
+    .brand-text h1{font-size:15px;}
+    .tag{font-size:12px;}
+    .hero{padding:18px 0;}
+    .hero h2{font-size:18px;}
+    .main-title{font-size:1.6rem;}
+    .lead{font-size:15px;}
+    .price{font-size:15px;}
+    .btn{padding:8px 12px; font-size:15px;}
+    .invest{padding:18px 0;}
+    .invest .invest-inner{padding:0 4px;}
+    .invest h2{font-size:20px;}
+    .invest li{font-size:15px;}
+    .benefit.center{padding:0 4px;}
+    .card{padding:10px;}
+    .hero-title { padding-top: 100px; }
+}
+@media (max-width:500px){
+    .container{padding:5px;}
+    body{padding:5px;}
+    .logo, .large-logo, .medium-logo, .small-logo{width:40px;height:40px;}
+    .extra-large-logo{width:70vw; height:70vw; max-width:180px; max-height:180px;}
+    .brand-text h1{font-size:13px;}
+    .nav{gap:6px; font-size:13px;}
+    .hero h2{font-size:15px;}
+    .lead, .price, .notify{font-size:13px;}
+    .card{padding:6px;}
+    .invest h2{font-size:16px;}
+    .invest li{font-size:13px;}
+    .site-footer{font-size:12px;}
+}
+.logo, .large-logo, .extra-large-logo, .medium-logo, .small-logo, .brand, .brand-text, .main-title, h1.main-title {
+    display: none !important;
+}
