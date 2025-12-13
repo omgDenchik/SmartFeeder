@@ -6,10 +6,74 @@
     <meta name="description" content="Простий проєкт годівниці для малих пташок — інструкція, креслення та поради.">
     <title>Годівниця для малих пташок</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Mobile nav overlay styles */
+        .mobile-nav-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.35);
+            z-index: 2000;
+        }
+        .mobile-nav {
+            position: fixed;
+            top: 0; left: -260px;
+            width: 240px;
+            height: 100vh;
+            background: linear-gradient(135deg, #e3fbe3 60%, #c8f2c8 100%);
+            /* більш насичений молочно-зелений фон */
+            box-shadow: 2px 0 16px rgba(76,138,76,0.13);
+            z-index: 2100;
+            transition: left 0.3s;
+            padding: 32px 18px 18px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .mobile-nav.open {
+            left: 0;
+        }
+        .mobile-nav .close-btn {
+            align-self: flex-end;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #357a35;
+            cursor: pointer;
+            margin-bottom: 18px;
+        }
+        .mobile-nav .nav {
+            flex-direction: column;
+            gap: 18px;
+        }
+        .mobile-nav .donate-header-btn {
+            margin: 18px 0 0 0;
+            width: 100%;
+            text-align: center;
+        }
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 2.2rem;
+            color: #357a35;
+            cursor: pointer;
+            margin-left: 12px;
+        }
+        @media (max-width: 900px) {
+            .nav, .donate-header-btn {
+                display: none !important;
+            }
+            .mobile-nav-toggle {
+                display: block;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="site-header fixed-header">
         <div class="container header-inner" style="justify-content:center;">
+            <button class="mobile-nav-toggle" aria-label="Відкрити меню">☰</button>
             <nav style="width:100%;">
                 <ul class="nav" style="justify-content:center;">
                     <li><a href="#about">Проєкт</a></li>
@@ -19,8 +83,30 @@
                     <li><a href="#contact">Контакти</a></li>
                 </ul>
             </nav>
+            <a class="donate-header-btn" href="#donate">Донат</a>
         </div>
     </header>
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <nav class="mobile-nav" id="mobileNav">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;">
+            <img src="images/logo.jpg" alt="Логотип годівниці" class="logo small-logo" style="width:44px;height:44px;display:block;">
+            <button class="close-btn" aria-label="Закрити меню">×</button>
+        </div>
+        <ul class="nav">
+            <li><a href="#about">Проєкт</a></li>
+            <li><a href="#benefit">Користь</a></li>
+            <li><a href="#invest">Інвестору</a></li>
+            <li><a href="#tips">Поради</a></li>
+            <li><a href="#contact">Контакти</a></li>
+        </ul>
+        <a class="donate-header-btn" href="#donate">Донат</a>
+        <a class="btn donate-btn" href="#donate" style="margin-top:18px;">Підтримати проєкт</a>
+        <a class="btn" href="#invest" style="margin-top:10px; background:#4a8a4a; color:#fff;">Інвестувати</a>
+        <a class="btn" href="#about" style="margin-top:10px; background:#357a35; color:#fff;">Детальніше про проєкт</a>
+        <a class="btn" href="#benefit" style="margin-top:10px; background:#357a35; color:#fff;">Користь</a>
+        <a class="btn" href="#tips" style="margin-top:10px; background:#357a35; color:#fff;">Поради</a>
+        <a class="btn" href="#contact" style="margin-top:10px; background:#357a35; color:#fff;">Зв'язатися</a>
+    </nav>
 
     <main>
         <section class="hero">
@@ -53,8 +139,7 @@
                 <p>Завдяки продуманій конструкції, годівниця легко монтується та обслуговується, а також підходить для різних кліматичних умов.</p>
             </article>
             <article class="card">
-                <h3>Безпека</h3>
-                <p>Уникайте токсичних фарб, не ставте годівницю прямо на шляху котів. Всі наші вироби відповідають стандартам безпеки для диких птахів.</p>
+                <h3>Якість та Безпека</h3>
                 <p>Кожна годівниця проходить контроль якості та тестується на міцність. Ми дбаємо про те, щоб ваші пернаті гості були у безпеці, а ви — впевнені у надійності виробу.</p>
                 <p>Безпечна конструкція та матеріали — це запорука довгого життя годівниці та здоров'я птахів.</p>
             </article>
@@ -112,6 +197,12 @@
             <p>Потрібні креслення, консультація чи партнерство? Звертайтесь до нашої команди: <a href="mailto:omgdenchik.da@gmail.com">omgdenchik.da@gmail.com</a></p>
             <p>Ми відкриті до співпраці, нових ідей та пропозицій. Разом ми можемо зробити більше для природи та суспільства!</p>
         </section>
+
+        <section id="donate" class="container donate-block">
+            <h2>Нагодуй пташку</h2>
+            <p>Ваша підтримка допоможе закупити корм та виготовити ще більше годівниць для маленьких птахів. Долучайтесь до доброї справи — разом ми можемо більше!</p>
+            <a class="btn donate-btn" href="https://send.monobank.ua/jar/2ghP6W9zmg" target="_blank" rel="noopener">Підтримати проєкт</a>
+        </section>
     </main>
 
     <footer class="site-footer">
@@ -121,6 +212,29 @@
             <p class="dev-team">Розробляла команда <strong>ПернатіТехноМейкери</strong></p>
         </div>
     </footer>
-</body>
 
+    <script>
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+        const openBtn = document.querySelector('.mobile-nav-toggle');
+        const closeBtn = mobileNav.querySelector('.close-btn');
+        function openMobileNav() {
+            mobileNav.classList.add('open');
+            mobileNavOverlay.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMobileNav() {
+            mobileNav.classList.remove('open');
+            mobileNavOverlay.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        openBtn.addEventListener('click', openMobileNav);
+        closeBtn.addEventListener('click', closeMobileNav);
+        mobileNavOverlay.addEventListener('click', closeMobileNav);
+        // Закривати меню після переходу по пункту
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMobileNav);
+        });
+    </script>
+</body>
 </html>
